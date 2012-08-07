@@ -1,13 +1,24 @@
 %h2 
 	Your profile
-%table.table.table-striped
+%table.table
 	%tbody
 		- %w(email first_name last_name alternate_name).map do |u|
 			%tr{:id => u}
 				%th.span2= u.humanize
 				%td= current_user[u]
 				%td= link_to content_tag(:i, nil, class: 'icon-pencil'), '#', title: 'edit', class: 'edit-hover pull-right'
-			%tr{:style=>'display:none'}
+			%tr.edit-tr{:style=>'display:none1'}
 				%td{:colspan=>3}
-					%div.well
-						= text_field_tag :aaaa
+					%div
+						= form_for 'email', :url => '#' do |f|
+							.control-group
+								%label.control-label{:for=>'email'}
+									New Email
+								.controls
+									= f.email_field :email, class: 'input-xlarge'
+									%p.help-block
+										Supporting help text
+							.form-actions
+								= f.submit 'Save changes', class: "btn btn-primary"
+								%a.btn{:href=>'#'}
+									Cancel

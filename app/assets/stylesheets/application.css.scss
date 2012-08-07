@@ -42,8 +42,10 @@ footer {
 .edit-hover:hover:before {content: 'edit ';};
 
 .edit-tr {
-	border: 1px solid $aColor;
-	padding: 12px;
-	margin: 0px;
-	background-color: #CFECEC;
+	background-color: #f5f5f5;
+	td {padding: 0;}
+	td > div {
+		padding: 20px;
+		border: 1px solid #dddddd;	
+	}
 }
