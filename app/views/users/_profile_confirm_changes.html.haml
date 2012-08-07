@@ -1,0 +1,16 @@
+.control-group
+	%label.control-label
+		Password
+	.controls
+		= profile_confirm_changes.password_field :password, class: 'input-xlarge', autocomplete: 'off', value: ''
+		%span.help-inline.pwd-is-incorrect{:style=>'display:none'}
+			%i.icon-thumbs-down
+			Password is incorect
+
+		%p.help-block
+			%strong
+				To apply changes, please enter your current password.
+.form-actions
+	= profile_confirm_changes.submit 'Save changes', class: "btn btn-primary"
+	%a.btn.btn_cancel{:href=>'#'}
+		Cancel

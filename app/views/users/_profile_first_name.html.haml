@@ -1,0 +1,9 @@
+%tr.edit-tr{:style=>'display:none'}
+	%td{:colspan=>3}
+		%div
+			.control-group
+				%label.control-label
+					New First Name
+				.controls
+					= f.text_field :first_name, class: 'input-xlarge'
+			= render :partial => 'profile_confirm_changes', object: f

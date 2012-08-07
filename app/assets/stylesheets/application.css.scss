@@ -19,23 +19,23 @@ $aColor: #4C7D7E;
 
 body { 
 	padding-top: 60px;
- 	overflow:hidden;
+ 	margin-bottom: $footerHeight;
 }
-
-a {
-	color: $aColor;
-}
+a {color: $aColor;}
 
 footer {
 	text-align: center;
 	line-height: $footerHeight;
 	min-height: $footerHeight;
 	background-color: #f5f5f5;
+	position:fixed;
+	bottom:0%;
+	width: 100%;
+}
+
+footer > div {
 	border: 1px solid #eee;
 	border: 1px solid rgba(0, 0, 0, 0.05);
-	position:absolute; 
-	bottom:0;
-	width: 100%;
 }
 
 .edit-hover:link {text-decoration: none;}

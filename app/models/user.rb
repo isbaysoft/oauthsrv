@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 		:oauth2_authorization_code_grantable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :last_name, :first_name, :alternate_name, :email, :password, :password_confirmation, :remember_me
   
   validates :first_name, :last_name, :alternate_name, :length => {:maximum => 50}
 
