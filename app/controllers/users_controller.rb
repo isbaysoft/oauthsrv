@@ -17,7 +17,13 @@ class UsersController < ApplicationController
   			unless current_user.valid_password?(params[:user].delete(:password))
   				render json: {status: 403} and return
   			end
-  			if current_user.update_attributes params[:user]
+        # params[:user][:password] = params[:new_password] 
+        if current_user.update_attributes params[:user]
+          if params[:new_password]
+            current_user.update_attributes(password: params[:new_password])
+            sign_in(current_user, :bypass => true)
+          end
+  
   				render json: {status: 200, data: current_user}
   			else
   				render json: {status: 500, message: current_user.errors.full_messages.join(',')}

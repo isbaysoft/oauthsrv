@@ -1,5 +1,6 @@
 defaults: &defaults
   title: 21RRauth
+  email_from: default@rrauth.com
 
 development:
   <<: *defaults

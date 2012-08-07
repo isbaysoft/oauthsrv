@@ -9,6 +9,7 @@ gem 'mysql2'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem "letter_opener"
 end
 
 # Gems used only for assets and not required
@@ -28,6 +29,7 @@ gem 'devise_oauth2_providable'
 gem 'bootstrap-sass', '~> 2.0.4.0'
 gem 'haml-rails'
 gem 'settingslogic'
+gem "recaptcha", :require => "recaptcha/rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

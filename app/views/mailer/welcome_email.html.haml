@@ -1,0 +1,17 @@
+%html
+	%body
+		%h2
+			Welcome to RRauth, 
+			= @user.email
+
+		%div
+			You have successfully signed up to 
+			= link_to 'RRauth service.', root_url
+			= "(#{root_url})"
+		%br
+		%br
+		%br
+		%div
+			regards,
+			%br
+			RRauth team

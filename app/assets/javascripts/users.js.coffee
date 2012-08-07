@@ -45,6 +45,7 @@ $(document).ready ->
 					$.each ['email', 'first_name', 'last_name', 'alternate_name'], (idx, item) ->
 						$('td#'+item).text(response['data'][item])
 				edit_controller.passwordIsIncorect() if response['status'] is 403
+				alert(response['message']) if response['status'] is 500
 		false
 
 	$('div.form-actions a.btn_cancel').click (e) ->
