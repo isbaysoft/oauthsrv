@@ -1,0 +1,13 @@
+%h2 
+	Your profile
+%table.table.table-striped
+	%tbody
+		- %w(email first_name last_name alternate_name).map do |u|
+			%tr{:id => u}
+				%th.span2= u.humanize
+				%td= current_user[u]
+				%td= link_to content_tag(:i, nil, class: 'icon-pencil'), '#', title: 'edit', class: 'edit-hover pull-right'
+			%tr{:style=>'display:none'}
+				%td{:colspan=>3}
+					%div.well
+						= text_field_tag :aaaa

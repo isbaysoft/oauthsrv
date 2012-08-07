@@ -1,0 +1,31 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : Setting.title
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    %link(href="images/favicon.ico" rel="shortcut icon")
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          =link_to 'RRauth', root_path, class: 'brand'
+          - if current_user
+            %p.navbar-text.pull-right
+              Logged in as 
+              = current_user.email
+              = link_to 'sign out', destroy_user_session_url, :method => :delete
+    .container
+      .content
+        .row
+          = yield    
+    %footer
+      %p &copy; Company 2012

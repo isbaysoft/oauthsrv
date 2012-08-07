@@ -1,0 +1,11 @@
+defaults: &defaults
+  title: 21RRauth
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

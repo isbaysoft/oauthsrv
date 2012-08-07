@@ -1,0 +1,9 @@
+.tabbable.tabs-left
+	%ul#megatabs.nav.nav-tabs
+		- tabs.map do |tab|
+			%li= link_to t(tab[:label]), "\##{tab[:name]}", 'data-toggle' => "tab"
+	.tab-content#myTabContent
+		- tabs.each do |tab|
+			= content_tag(:div, render(:partial => tab[:partial], :object => form_object), :id => tab[:name], :class => 'tab-content hide')
+
+= javascript_include_tag "tabs"
