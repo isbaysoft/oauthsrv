@@ -7,6 +7,7 @@ Rrauth::Application.routes.draw do
   mount Devise::Oauth2Providable::Engine => '/oauth'
 
   resource :user
+  resources :oauth2_clients
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

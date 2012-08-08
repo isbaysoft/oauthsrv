@@ -1,2 +1,34 @@
 %h2
 	Your Applications
+%hr
+.btn-toolbar
+	.btn-group
+		= link_to 'Create', new_oauth2_client_path, remote: true, class: 'btn'
+		%button.btn
+			Remove
+
+#myCarousel.carousel.slide
+	.carousel-inner
+		#application_container.active.item	
+			- if current_user.oauth2_clients.any?
+				%table#appTable_id.table
+					%thead
+						%tr
+							%th name				
+							%th redirect_uri				
+							%th website
+					%tbody
+						- current_user.oauth2_clients.map do |client|
+							%tr
+								%td
+									= client.name
+								%td
+									= client.redirect_uri
+								%td
+									= client.website
+			-	else
+				.alert.alert-info
+					You don't have applications yet
+		#new_application_container.item.well
+
+= render partial: 'shared/jstemplates/oauth2_clients/row_app'

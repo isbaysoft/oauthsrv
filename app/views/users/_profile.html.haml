@@ -1,5 +1,6 @@
 %h2 
 	Your profile
+%hr
 = form_for current_user, remote: true, html: {name: 'user_profile', class: 'form-horizontal'} do |f|
 	%table.table
 		%tbody

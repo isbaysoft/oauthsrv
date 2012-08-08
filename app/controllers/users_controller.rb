@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   				render json: {status: 500, message: current_user.errors.full_messages.join(',')}
   			end
   		end
-  		format.any {render :nothing}
   	end
   end
 

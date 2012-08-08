@@ -16,4 +16,10 @@ module ApplicationHelper
 	]
 	end
 
+	def inline_error(object,key)
+		content_tag :span, class: 'help-inline' do
+			content_tag(:i, nil,  class: 'icon-thumbs-down') << ' ' << object.errors.get(key.to_sym).first
+		end if object.errors.has_key?(key.to_sym)
+	end
+
 end

@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
+
+	$('.carousel').carousel({interval: false})
 	
 	edit_controller =
 		passwordIsIncorect: ->
@@ -53,14 +55,9 @@ $(document).ready ->
 		e.preventDefault()
 
 	$('.edit-hover').click (e) ->
-		edit_controller.open(@);
+		edit_controller.open(@)
 		e.preventDefault()
 
-
-
-
-
-
-
-
-
+	$('#new_oauth2_client div.form-actions a').live 'click', (e) ->
+		$('.carousel').carousel(0)
+		e.preventDefault()

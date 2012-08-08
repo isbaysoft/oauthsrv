@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :oauth2_clients
+
   devise :database_authenticatable, 
   	:registerable,
 		:recoverable, :rememberable, :trackable, :validatable

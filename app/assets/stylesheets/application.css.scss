@@ -49,3 +49,6 @@ footer > div {
 		border: 1px solid #dddddd;	
 	}
 }
+
+.field_with_errors {display: inline;}
+.field_with_errors input {border: 1px solid #ff6f6f;}

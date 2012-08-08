@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806135340) do
+ActiveRecord::Schema.define(:version => 20120808075938) do
 
   create_table "oauth2_access_tokens", :force => true do |t|
     t.integer  "user_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120806135340) do
     t.string   "secret"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id",      :null => false
   end
 
   add_index "oauth2_clients", ["identifier"], :name => "index_oauth2_clients_on_identifier", :unique => true
