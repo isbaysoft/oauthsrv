@@ -3,13 +3,11 @@
 %hr
 .btn-toolbar
 	.btn-group
-		= link_to 'Create', new_oauth2_client_path, remote: true, class: 'btn'
-		%button.btn
-			Remove
+		= link_to 'Register new application', new_oauth2_client_path, remote: true, class: 'btn'
 
 #myCarousel.carousel.slide
 	.carousel-inner
-		#application_container.active.item	
+		#application_container.active.item{:style=>'min-height:640px;'}
 			- if current_user.oauth2_clients.any?
 				%table#appTable_id.table
 					%thead
@@ -17,15 +15,14 @@
 							%th name				
 							%th redirect_uri				
 							%th website
+							%th.mark1
 					%tbody
 						- current_user.oauth2_clients.map do |client|
-							%tr
-								%td
-									= client.name
-								%td
-									= client.redirect_uri
-								%td
-									= client.website
+							%tr{:id=>"app#{client.id}"}
+								%td= client.name
+								%td= client.redirect_uri
+								%td= client.website
+								%td= link_to content_tag(:i, nil, class: 'icon-pencil'), edit_oauth2_client_path(client), remote: true, title: 'edit', class: 'edit-panel pull-right'
 			-	else
 				.alert.alert-info
 					You don't have applications yet

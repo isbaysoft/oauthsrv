@@ -7,4 +7,9 @@ class Mailer < ActionMailer::Base
 		mail to: user.email, subject: 'Welcom to RRauth'
 	end
 
+	def register_application(user,application)
+		@user,@application = user,application
+		mail to: user.email, subject: 'Registered new application'
+	end
+
 end

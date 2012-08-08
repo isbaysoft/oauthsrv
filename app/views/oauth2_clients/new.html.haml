@@ -1,0 +1,9 @@
+%h2
+	Register new application
+%hr
+= form_for @client, remote: true, html: {name: 'application_form', class: 'form-horizontal'} do |f|
+	= render partial: 'form', object: f
+	.form-actions
+		= f.submit 'Register new application', class: "btn btn-primary", 'data-loading-text' => 'Saving ...'
+		%a.btn.btn_cancel{:href=>'#'}
+			Cancel

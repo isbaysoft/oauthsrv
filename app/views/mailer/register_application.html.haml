@@ -1,0 +1,41 @@
+%h3
+	Hello
+	= @user.full_user_name
+%h4
+	You have registered new application, your registered data below.
+
+.info
+	%table
+		%tr
+			%td Application name:
+			%td= @application.name
+		%tr
+			%td Redirect URI:
+			%td= @application.redirect_uri
+		%tr
+			%td Website:
+			%td= @application.website
+		%tr
+			%td Identifier:
+			%td= @application.identifier
+		%tr
+			%td Secret:
+			%td= @application.secret
+		%tr
+			%td Support Email:
+			%td= @application.support_email
+		%tr
+			%td Contact Email:
+			%td= @application.contact_email
+		%tr
+			%td Application description:
+			%td= @application.app_description
+%br
+%br
+%br
+:plain
+	----------------------------------
+%div
+	regards,
+	%br
+	RRauth team

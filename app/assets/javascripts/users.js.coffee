@@ -6,10 +6,13 @@ $(document).ready ->
 
 	$('.carousel').carousel({interval: false})
 	
-	edit_controller =
-		passwordIsIncorect: ->
+	window.edit_controller =
+		passwordIsIncorect: (state) ->
 			$('span.help-inline.pwd-is-incorrect').each (x,e) ->
-				$(e).show()
+				if state is true
+					$(e).show()
+				else
+					$(e).hide()
 		open: (obj) ->
 			@.closeAll()
 			$(obj).closest('tr').next('tr').show()
@@ -36,6 +39,9 @@ $(document).ready ->
 		
 		$('form #user_password:last').val(pwd.val())
 
+		$('form[name=user_profile] div.form-actions input[name=commit]').attr('data-loading-text','Saving ...')
+		$('form[name=user_profile] div.form-actions input[name=commit]').button('loading');
+
 		$.ajax
 			type: "PUT"
 			dataType: "json"
@@ -46,8 +52,10 @@ $(document).ready ->
 					edit_controller.closeAll()
 					$.each ['email', 'first_name', 'last_name', 'alternate_name'], (idx, item) ->
 						$('td#'+item).text(response['data'][item])
-				edit_controller.passwordIsIncorect() if response['status'] is 403
+				edit_controller.passwordIsIncorect(true) if response['status'] is 403
 				alert(response['message']) if response['status'] is 500
+			complete: ->
+				$('form[name=user_profile] div.form-actions input[name=commit]').button('reset')
 		false
 
 	$('div.form-actions a.btn_cancel').click (e) ->
@@ -56,8 +64,25 @@ $(document).ready ->
 
 	$('.edit-hover').click (e) ->
 		edit_controller.open(@)
+		edit_controller.passwordIsIncorect(false)
 		e.preventDefault()
 
-	$('#new_oauth2_client div.form-actions a').live 'click', (e) ->
+	$('div.form-actions a.btn_cancel').live 'click', (e) ->
 		$('.carousel').carousel(0)
-		e.preventDefault()
+		e.preventDefault()		
+
+	$('.generate_secrets').live click: ->
+		o = $(@)
+		$.ajax
+			type: "POST"
+			dataType: "json"
+			url: "/oauth2_clients/generate_secrets"
+			success: (response) ->
+				$(o).prev().val(response['secret'])
+
+	$('form[name=application_form]').live submit: ->
+		$('form[name=application_form] div.form-actions input[name=commit]').button('loading');
+		
+
+
+					

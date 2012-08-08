@@ -1,0 +1,49 @@
+<script type="text/javascript">
+	function notifyAppAdd(response) {
+		if ($('#appTable_id').size() == 0) {
+			$("#appCreateTableTemplate").tmpl().appendTo("#application_container");
+			$('#application_container div.alert').hide();
+		}
+		$("#appRowTemplate").tmpl(response).appendTo("#appTable_id tbody");
+		$('.carousel').carousel(0)
+	}
+
+  function notifyAppUpdate(response) {
+    $("#appRowTemplate").tmpl(response).replaceAll("#app"+response['id']);
+    $('.carousel').carousel(0);
+  }
+
+  function notifyDestroy(response) {
+    $("#app"+response['id']).remove()
+    $('.carousel').carousel(0);
+  }
+
+</script>
+
+
+
+
+<script id="appRowTemplate" type="text/x-jquery-tmpl">
+<tr id="app${id}">
+  <td>${name}</td>
+  <td>${redirect_uri}</td>
+  <td>${website}</td>
+  <td><a href="/oauth2_clients/${id}/edit" class="edit-hover pull-right" data-remote="true" title="edit" style="display: block; "><i class="icon-pencil"></i></a></td>
+</tr>
+</script>
+
+<script id="appCreateTableTemplate" type="text/x-jquery-tmpl">
+<table class="table" id="appTable_id">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>redirect_uri</th>
+      <th>website</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+</tbody>
+</table>
+</script>
+

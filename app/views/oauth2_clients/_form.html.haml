@@ -1,0 +1,36 @@
+.control-group
+	%label.control-label
+		Application Name
+	.controls
+		= form.text_field :name, class: 'input-xlarge'
+		= inline_error(@client,:name)
+.control-group
+	%label.control-label
+		Redirect URI
+	.controls
+		= form.text_field :redirect_uri, class: 'input-xlarge'
+		= inline_error(@client,:redirect_uri)
+.control-group
+	%label.control-label
+		Website Name
+	.controls
+		= form.text_field :website, class: 'input-xlarge'
+		= inline_error(@client,:website)
+.control-group
+	%label.control-label
+		Support Email
+	.controls
+		= form.text_field :support_email, class: 'input-xlarge'
+		= inline_error(@client,:support_email)
+.control-group
+	%label.control-label
+		Contact Email
+	.controls
+		= form.text_field :contact_email, class: 'input-xlarge'
+		= inline_error(@client,:contact_email)
+.control-group
+	%label.control-label
+		Application description
+	.controls
+		= form.text_area :app_description, class: 'input-xlarge', size: '40x5'
+		= inline_error(@client,:app_description)

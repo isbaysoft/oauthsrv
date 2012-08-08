@@ -1,0 +1,37 @@
+%h2
+	Edit Application
+%hr
+= form_for @client, remote: true, html: {name: 'application_form', class: 'form-horizontal'} do |f|
+	= render partial: 'form', object: f
+	%br/
+	.control-group
+		%label.control-label
+			Identifier
+		.controls
+			.input-append
+				= f.text_field :identifier, class: 'input-xlarge' 
+				%a.generate_secrets.btn> New
+				= inline_error(@client,:identifier)
+	.control-group
+		%label.control-label
+			Secret
+		.controls
+			.input-append
+				= f.text_field :secret, class: 'input-xlarge'
+				%a.generate_secrets.btn> New
+				= inline_error(@client,:secret)
+	%hr
+	.control-group
+		%label.control-label
+			Password
+		.controls
+			= password_field_tag :password, nil, class: 'input-xlarge', autocomplete: 'off', value: ''
+			= inline_error(@client,:password)
+			%p.help-block
+				%strong
+					To apply changes, please enter your current password.
+	.form-actions
+		= f.submit 'Update application', class: "btn btn-primary", 'data-loading-text' => 'Updating ...'
+		= link_to 'Delete', oauth2_client_path(@client), :method => :delete, :confirm => "Are you sure?", class: "btn btn-danger", remote: true, method: :delete
+		%a.btn.btn_cancel{:href=>'#'}
+			Cancel

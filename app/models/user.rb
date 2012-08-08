@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
     '*********'
   end
 
+  def full_user_name
+    uname = [first_name,last_name].compact.join(' ')
+    uname.blank? ? email : uname
+  end
+
 protected
   
   def send_welcome_email 

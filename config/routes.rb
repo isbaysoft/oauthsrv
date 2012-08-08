@@ -7,7 +7,9 @@ Rrauth::Application.routes.draw do
   mount Devise::Oauth2Providable::Engine => '/oauth'
 
   resource :user
-  resources :oauth2_clients
+  resources :oauth2_clients do |r|
+    post 'generate_secrets', on: :collection
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
