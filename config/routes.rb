@@ -1,15 +1,20 @@
 Rrauth::Application.routes.draw do
-
+  mount Devise::Oauth2Providable::Engine => '/oauth'
+  
   devise_for :users, controllers: {:passwords => 'passwords'}
 
   root to: 'home#index'
 
-  mount Devise::Oauth2Providable::Engine => '/oauth'
-
   resource :user
+
   resources :oauth2_clients do |r|
     post 'generate_secrets', on: :collection
   end
+
+  namespace "api" do
+    resource :current_user
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

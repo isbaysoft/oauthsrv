@@ -1,0 +1,25 @@
+#homeCarousel
+	= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+		.row
+			.span3 &nbsp;
+			.span6
+				%h1
+					Sign in
+				%hr
+				.row
+					.span2
+						= image_tag 'access.png'
+					.span4
+						.control-group
+							= f.label :email, class: 'control-label'
+							.controls
+								= f.email_field :email
+						%div 
+							= f.label :password
+							= f.password_field :password
+							= content_tag :span, flash[:alert], class: 'label label-important' if flash[:alert]
+				%hr
+				%div
+					.pull-right
+						= f.submit 'Sign in'.html_safe, class: 'btn btn-primary'
+			.span3 &nbsp;

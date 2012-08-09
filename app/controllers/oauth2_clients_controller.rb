@@ -1,5 +1,7 @@
 class Oauth2ClientsController < ApplicationController
 
+	before_filter :authenticate_user!
+
 	before_filter :find_client, only: [:update, :edit, :destroy]
 
 	respond_to :js, :json, :html

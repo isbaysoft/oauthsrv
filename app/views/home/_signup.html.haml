@@ -1,11 +1,25 @@
 = form_for :user, url: registration_path(:user) do |f|
-	%div
-		= f.label :email
-		= f.email_field :email
-	%div
-		= f.label :password
-		= f.password_field :password
-	%div
-		= f.label :password_confirmation
-		= f.password_field :password_confirmation
-	= f.submit 'Sign Up'
+	.row
+		.span3 &nbsp;
+		.span6
+			%h1 Sign up
+			%hr
+			.row
+				.span2
+					= image_tag 'application.png'
+				.span4
+					%div
+						= f.label :email
+						= f.email_field :email
+					%div
+						= f.label :password
+						= f.password_field :password
+					%div
+						= f.label :password_confirmation
+						= f.password_field :password_confirmation
+			%hr
+			%div
+				%a.btn.goto_signin#signin{:title=>'Click to go to sign in page'} Already a member?
+				.pull-right
+					= f.submit 'Sign Up', class: 'btn btn-primary'
+		.span3 &nbsp;

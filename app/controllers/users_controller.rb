@@ -3,10 +3,6 @@ class UsersController < ApplicationController
 
 	respond_to :html, :json
 
-  def show
-  end
-  
-
   # Statuses
   # 	200 - OK
   # 	403 - password is incorect
@@ -31,6 +27,5 @@ class UsersController < ApplicationController
   		end
   	end
   end
-
 
 end

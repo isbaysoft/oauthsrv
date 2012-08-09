@@ -5,7 +5,7 @@
 	.btn-group
 		= link_to 'Register new application', new_oauth2_client_path, remote: true, class: 'btn'
 
-#myCarousel.carousel.slide
+#ApplicationCarousel.carousel.slide
 	.carousel-inner
 		#application_container.active.item{:style=>'min-height:640px;'}
 			- if current_user.oauth2_clients.any?

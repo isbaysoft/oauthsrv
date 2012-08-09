@@ -1,7 +1,7 @@
 %h2 
 	Your profile
 %hr
-= form_for current_user, remote: true, html: {name: 'user_profile', class: 'form-horizontal'} do |f|
+= form_for current_user, :url => user_path, remote: true, html: {name: 'user_profile', class: 'form-horizontal'} do |f|
 	%table.table
 		%tbody
 			- %w(email first_name last_name alternate_name new_password).map do |u|

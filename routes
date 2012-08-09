@@ -12,7 +12,6 @@
                                 PUT    /users(.:format)                           devise/registrations#update
                                 DELETE /users(.:format)                           devise/registrations#destroy
                            root        /                                          home#index
-       devise_oauth2_providable        /oauth                                     Devise::Oauth2Providable::Engine
                            user POST   /user(.:format)                            users#create
                        new_user GET    /user/new(.:format)                        users#new
                       edit_user GET    /user/edit(.:format)                       users#edit
@@ -27,6 +26,13 @@ generate_secrets_oauth2_clients POST   /oauth2_clients/generate_secrets(.:format
                   oauth2_client GET    /oauth2_clients/:id(.:format)              oauth2_clients#show
                                 PUT    /oauth2_clients/:id(.:format)              oauth2_clients#update
                                 DELETE /oauth2_clients/:id(.:format)              oauth2_clients#destroy
+               api_current_user POST   /api/current_user(.:format)                api/current_users#create
+           new_api_current_user GET    /api/current_user/new(.:format)            api/current_users#new
+          edit_api_current_user GET    /api/current_user/edit(.:format)           api/current_users#edit
+                                GET    /api/current_user(.:format)                api/current_users#show
+                                PUT    /api/current_user(.:format)                api/current_users#update
+                                DELETE /api/current_user(.:format)                api/current_users#destroy
+       devise_oauth2_providable        /oauth                                     Devise::Oauth2Providable::Engine
 
 Routes for Devise::Oauth2Providable::Engine:
           root      /                         devise/oauth2_providable/authorizations#new

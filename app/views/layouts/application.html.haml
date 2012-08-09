@@ -18,15 +18,28 @@
             %span.icon-bar
             %span.icon-bar
           =link_to 'RRauth', root_path, class: 'brand'
-          - if current_user
+          - if self.controller.class == UsersController && user_signed_in?
             %p.navbar-text.pull-right
               Logged in as 
-              = current_user.email
+              = link_to current_user.email, user_path
               = link_to 'sign out', destroy_user_session_url, :method => :delete
-    .container
-      .content
-        .row
-          = yield    
+    .mainContent
+      .container
+        .content
+          .row
+            = yield    
     %footer
-      %div
-        %p &copy; Company 2012
+      %div.ff
+        .row-fluid
+          .span3
+            %h6 &copy; Company 2012
+          .span6
+            - unless user_signed_in?
+              %h6 
+                Navigation:             
+                = link_to 'Sign in', '#', class: "goto_signin", id: 'signin'
+                |
+                = link_to 'Sign up', '#', class: "goto_signup", id: 'signup'
+                |
+                = link_to 'Password reset', '#', class: "goto_passwordReset", id: 'passwordReset'
+

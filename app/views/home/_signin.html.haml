@@ -1,9 +1,26 @@
 = form_for :user, url: session_path(:user) do |f|
-	%div
-		= f.label :email
-		= f.email_field :email
-	%div 
-		= f.label :password
-		= f.password_field :password
-	= f.submit 'Sign In'
-= link_to "Forgot your password?", new_password_path(:user)
+	.row
+		.span3 &nbsp;
+		.span6
+			%h1 
+				Sign in
+			%hr
+			.row
+				.span2
+					= image_tag 'access.png'
+				.span4
+					.control-group
+						= f.label :email, class: 'control-label'
+						.controls
+							= f.email_field :email
+					%div 
+						= f.label :password
+						= f.password_field :password
+						= content_tag :span, flash[:alert], class: 'label label-important' if flash[:alert]
+			%hr
+			%div
+				%a.btn.goto_signup#signup{:title=>'Click to go to sign up page'} You are not registered yet?
+				%a.btn.goto_passwordReset#passwordReset{:title=>'Click to go to password reset page'} Forgot your password?
+				.pull-right
+					= f.submit 'Sign in'.html_safe, class: 'btn btn-primary'
+		.span3 &nbsp;

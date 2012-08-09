@@ -1,10 +1,9 @@
-.row
-	.span6
-		%h1 
-			sign in
-		= render 'signin'
-	.span6
-		%h1 
-			sign up
-		= render 'signup'
-		
+#homeCarousel.carousel.slide
+	.carousel-inner
+		#signupTab.item
+			%div= render 'signup'
+		#signinTab.active.item
+			%div= render 'signin'
+		#passwordResetTab.item
+			%div= render 'forgot_password'
+= javascript_include_tag "home"
