@@ -26,16 +26,11 @@ a {color: $aColor;}
 
 footer {
 	min-height: $footerHeight;
-	background-color: #f5f5f5;
+	/*background-color: #f5f5f5;*/
 	position:fixed;
 	bottom:0%;
-	width: 100%;
-}
-
-footer > div {
-	padding: 12px;
-	border: 1px solid #eee;
-	border: 1px solid rgba(0, 0, 0, 0.05);
+	/*width: 100%;*/
+	width: 940px;
 }
 
 .edit-hover:link {text-decoration: none;}

@@ -28,18 +28,19 @@
         .content
           .row
             = yield    
-    %footer
-      %div.ff
-        .row-fluid
-          .span3
-            %h6 &copy; Company 2012
-          .span6
-            - unless user_signed_in?
-              %h6 
-                Navigation:             
-                = link_to 'Sign in', '#', class: "goto_signin", id: 'signin'
-                |
-                = link_to 'Sign up', '#', class: "goto_signup", id: 'signup'
-                |
-                = link_to 'Password reset', '#', class: "goto_passwordReset", id: 'passwordReset'
+        %footer
+          %hr
+          .row
+            .span10
+              - unless user_signed_in?
+                %h6 
+                  Navigation:             
+                  = link_to 'Sign in', '#', class: "goto_signin", id: 'signin'
+                  |
+                  = link_to 'Sign up', '#', class: "goto_signup", id: 'signup'
+                  |
+                  = link_to 'Password reset', '#', class: "goto_passwordReset", id: 'passwordReset'
+            .span2
+              .pull-right
+                %h6 &copy; Company 2012
 
