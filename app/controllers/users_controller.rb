@@ -3,6 +3,13 @@ class UsersController < ApplicationController
 
 	respond_to :html, :json
 
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: current_user }
+    end
+  end
+
   # Statuses
   # 	200 - OK
   # 	403 - password is incorect

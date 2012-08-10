@@ -10,3 +10,13 @@
 					%td{:id=>u}= current_user.send(u)
 					%td.mark1= link_to content_tag(:i, nil, class: 'icon-pencil'), '#', title: 'edit', class: 'edit-hover pull-right' unless ['email'].include?(u)
 				= render :partial => "profile_#{u}", locals: {f: f}
+
+
+#users
+
+:javascript
+	$(function() {
+		// Blog is the app name
+		window.router = new Rrauth.Routers.UsersRouter({user: #{current_user.to_json.html_safe}});
+		Backbone.history.start();
+	});

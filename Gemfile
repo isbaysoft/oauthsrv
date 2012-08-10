@@ -30,6 +30,7 @@ gem 'bootstrap-sass', '~> 2.0.4.0'
 gem 'haml-rails'
 gem 'settingslogic'
 gem "recaptcha", :require => "recaptcha/rails"
+gem "rails-backbone"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

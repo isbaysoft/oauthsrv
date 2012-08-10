@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.template.min
+//= require underscore
+//= require backbone
+//= require "backbone/rrauth"
 // require_tree .
