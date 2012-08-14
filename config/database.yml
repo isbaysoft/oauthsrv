@@ -37,4 +37,4 @@ production:
   database: rrauth
   pool: 5
   username: postgres
-  password:
+  password: ruby
