@@ -17,7 +17,7 @@
 						= f.label :password
 						= f.password_field :password
 						%br/
-						= content_tag :span, flash[:alert], class: 'label label-important' if flash[:alert]
+						= content_tag :span, flash[:alert], class: 'label label-important' if flash[:alert] && flash[:alert].is_a?(String)
 			%hr
 			%div
 				%a.btn.goto_signup#signup{:title=>'Click to go to sign up page'} You are not registered yet?

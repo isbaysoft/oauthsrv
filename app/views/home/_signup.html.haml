@@ -19,9 +19,11 @@
 						= f.password_field :password_confirmation
 						%br/
 						%h3
-							- if flash[:alert]
-								- flash[:alert].full_messages.map do |error|
+						- if (alert = flash[:alert]) && (alert.is_a?(Hash)) && (resource = (alert[:resource] || false)) && (resource.errors.any?)
+							- resource.errors.full_messages.map do |error|
+								%div
 									= content_tag :span, error, class: 'label label-important'
+
 
 			%hr
 			%div

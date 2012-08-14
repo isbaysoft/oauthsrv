@@ -21,7 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
-			redirect_to(root_path(anchor: 'signup'), {alert: resource.errors})
+			redirect_to(root_path(anchor: 'signup'), {alert: {resource: resource}})
     end		
 	end
 
