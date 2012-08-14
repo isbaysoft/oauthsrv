@@ -15,6 +15,7 @@ Rrauth::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
+  config.assets.precompile += %w( *.js )
   config.assets.compile = true
 
   # Generate digests for assets URLs
