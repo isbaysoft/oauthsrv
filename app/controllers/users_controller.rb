@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: current_user }
+      format.json { render json: current_user}
     end
   end
 
@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def update
   	respond_with(current_user) do |format|
   		format.json do
-  			unless current_user.valid_password?(params[:user].delete(:password))
-  				render json: {status: 403} and return
-  			end
+  			# unless current_user.valid_password?(params[:user].delete(:password))
+     #      render statue: 401, json: {status: 403} and return
+     #    end
         # params[:user][:password] = params[:new_password] 
         if current_user.update_attributes params[:user]
           if params[:new_password]

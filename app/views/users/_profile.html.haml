@@ -1,17 +1,3 @@
-%h2 
-	Your profile
-%hr
-= form_for current_user, :url => user_path, remote: true, html: {name: 'user_profile', class: 'form-horizontal'} do |f|
-	%table.table
-		%tbody
-			- %w(email first_name last_name alternate_name new_password).map do |u|
-				%tr
-					%th.span2.bgDark= u.humanize
-					%td{:id=>u}= current_user.send(u)
-					%td.mark1= link_to content_tag(:i, nil, class: 'icon-pencil'), '#', title: 'edit', class: 'edit-hover pull-right' unless ['email'].include?(u)
-				= render :partial => "profile_#{u}", locals: {f: f}
-
-
 #users
 
 :javascript

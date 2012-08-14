@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, :alternate_name, :length => {:maximum => 50}
 
+  def as_json(options)
+    {new_password: new_password}.merge(self.attributes)
+  end
+
   def new_password
     '*********'
   end

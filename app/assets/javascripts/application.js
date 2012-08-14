@@ -16,5 +16,6 @@
 //= require jquery.template.min
 //= require underscore
 //= require backbone
+//= require "hamlcoffee"
 //= require "backbone/rrauth"
 // require_tree .

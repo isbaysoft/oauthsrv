@@ -1,6 +1,7 @@
 class Rrauth.Routers.UsersRouter extends Backbone.Router
 	initialize: (options) ->
 		@user = new Rrauth.Models.User(options.user)
+		@users = new Rrauth.Collections.UsersCollection(@user)
 
 	routes:
 		"index" : "index"
