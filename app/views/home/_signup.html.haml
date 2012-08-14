@@ -17,6 +17,12 @@
 					%div
 						= f.label :password_confirmation
 						= f.password_field :password_confirmation
+						%br/
+						%h3
+							- if flash[:alert]
+								- flash[:alert].full_messages.map do |error|
+									= content_tag :span, error, class: 'label label-important'
+
 			%hr
 			%div
 				%a.btn.goto_signin#signin{:title=>'Click to go to sign in page'} Already a member?

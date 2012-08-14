@@ -1,7 +1,7 @@
 Rrauth::Application.routes.draw do
   mount Devise::Oauth2Providable::Engine => '/oauth'
   
-  devise_for :users, controllers: {:passwords => 'passwords'}
+  devise_for :users, controllers: {passwords: 'passwords', sessions: 'sessions', registrations: 'registrations'}
 
   root to: 'home#index'
 
