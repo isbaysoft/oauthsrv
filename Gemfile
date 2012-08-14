@@ -25,6 +25,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# Use unicorn as the app server
+gem 'unicorn'
+
 gem 'jquery-rails'
 gem 'devise_oauth2_providable'
 gem 'bootstrap-sass', '~> 2.0.4.0'
@@ -38,8 +41,6 @@ gem "recaptcha", :require => "recaptcha/rails"
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-# gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
