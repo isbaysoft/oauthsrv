@@ -15,7 +15,7 @@ development:
   database: rrauth_dev
   pool: 5
   username: root
-  password:
+  password: ruby
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -32,11 +32,9 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  reconnect: false
   database: rrauth
   pool: 5
-  username: root
+  username: postgres
   password:
-  socket: /var/run/mysqld/mysqld.sock
