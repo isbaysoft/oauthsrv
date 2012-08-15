@@ -1,0 +1,7 @@
+%h2 Your profile
+%hr
+%form{:name=>'profileForm'}
+	%table.table#profile_table
+		%tbody
+
+		

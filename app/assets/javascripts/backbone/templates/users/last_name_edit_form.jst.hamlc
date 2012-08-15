@@ -1,0 +1,8 @@
+%tr.edit-tr{:style=>'display:none1'}
+	%td{:colspan=>3}
+		%div
+			.control-group
+				%label.control-label
+					New Last Name
+				.controls
+					%input.input-xlarge{:name=>'last_name', :type=>'text'}

@@ -1,0 +1,6 @@
+%tr{:id=>"tr_#{@id}"}
+	%th.span2.bgDark= @caption
+	%td.value= @value
+	%td.mark1
+		%a.edit-hover.pull-right{:href=>"#"}
+			%i.icon-pencil

@@ -1,0 +1,10 @@
+%tr.edit-tr{:style=>'display:none1'}
+	%td{:colspan=>3}
+		%div
+			.control-group
+				%label.control-label
+					New First Name
+				.controls
+					%input.input-xlarge{:name=>'first_name', :type=>'text'}
+				#a.btn.save-changes{:href=>'a'} Save changes
+	%hr
